@@ -6,27 +6,16 @@
     .player {
       max-width: 600px;
       margin: 40px auto;
-      border: 2px solid black;
     }
 
-    .viewer {
+    .player__video {
       width: 100%;
     }
 
-    .controls {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px;
-      background: #eee;
-    }
-
     .progress {
-      flex: 1;
-      height: 10px;
       background: #ccc;
+      height: 10px;
       cursor: pointer;
-      position: relative;
     }
 
     .progress__filled {
@@ -40,26 +29,26 @@
 
 <div class="player">
 
-  <video class="viewer"
+  <!-- MUST be player__video -->
+  <video class="player__video"
     src="https://www.w3schools.com/html/mov_bbb.mp4">
   </video>
 
-  <div class="controls">
+  <button class="player__button toggle">►</button>
 
-    <button class="player__button toggle">►</button>
-
-    <div class="progress">
-      <div class="progress__filled"></div>
-    </div>
-
-    <input type="range" name="volume" min="0" max="1" step="0.05" value="1" class="volume">
-
-    <input type="range" name="playbackRate" min="0.5" max="2" step="0.1" value="1" class="playbackSpeed">
-
-    <button class="skip" data-skip="-10">« 10s</button>
-    <button class="skip" data-skip="25">25s »</button>
-
+  <div class="progress">
+    <div class="progress__filled"></div>
   </div>
+
+  <input type="range" class="volume" min="0" max="1" step="0.05" value="1">
+  <input type="range" class="playbackSpeed" min="0.5" max="2" step="0.1" value="1">
+
+  <!-- MUST be rewind -->
+  <button class="rewind">« 10s</button>
+
+  <!-- MUST be forward -->
+  <button class="forward">25s »</button>
+
 </div>
 
 <script src="scripts.js"></script>
